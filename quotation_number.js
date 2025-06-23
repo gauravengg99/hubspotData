@@ -5,12 +5,12 @@ exports.main = async (event, callback) => {
    
     const dealId = event.object.objectId;
     
-    const CURRENT_COUNTER = parseInt(event.inputFields['quotation_number']);
+    // const CURRENT_COUNTER = parseInt(event.inputFields['quotation_number']);
 
    
-    const nextCounter = isNaN(CURRENT_COUNTER) || CURRENT_COUNTER 
-      ? 0
-      : 0;
+    // const nextCounter = isNaN(CURRENT_COUNTER) || CURRENT_COUNTER 
+    //   ? 0
+    //   : 0;
 const currentYear = new Date().getFullYear();
    const hubspotClient = new hubspot.Client({ accessToken: process.env.HUBSPOT_API_KEY });
 
@@ -63,7 +63,7 @@ const searchResponse = await hubspotClient.crm.deals.searchApi.doSearch({
     const now = new Date();
 const month = String(now.getMonth() + 1).padStart(2, '0');
 
-    const newCode = 'GE-RE' + '-'+ ownerInitials + '-'+month+(nextCounter.toString().padStart(1, '0') +counter).toString() + '-' + currentYear;
+    const newCode = 'GE-RE' + '-'+ ownerInitials + '-'+month+ counter.toString().padStart(2, '0')  + '-' + currentYear;
 
   
  
