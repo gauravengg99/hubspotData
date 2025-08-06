@@ -37,7 +37,7 @@ const month = String(now.getMonth() + 1).padStart(2, '0');
     }
  const dealId = event.object.objectId;
     const currentYear = new Date().getFullYear();
-    const formattedCounter = `GERE-${month}${newCounter.toString().padStart(2, '0')}+'-'${currentYear}`;
+    const formattedCounter = `GERE-${month}${newCounter.toString().padStart(2, '0')}-${currentYear}`;
   
   await hubspotClient.crm.deals.basicApi.update(dealId, {
       properties: {
